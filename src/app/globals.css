@@ -2,63 +2,90 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    @apply bg-gray-100;
+/* Custom variables */
+:root {
+    --bg-primary: #f8f8f8;
+    /* Define your custom background variable */
+    --text-primary: #000000;
+    /* Define your custom text color variable */
+    --btn-primary: #000000;
+    /* Define your custom primary button color */
 }
 
-input[type="text"], textarea{
-    @apply bg-gray-100 w-full block py-2 px-2 mb-2;
+/* Use custom variable in Tailwind classes */
+body {
+    background-color: var(--bg-primary);
+    /* Apply custom background color */
+    color: var(--text-primary);
+    /* Apply custom text color */
 }
-label.input-label{
+
+
+
+input[type="text"],
+textarea {
+    @apply w-full block py-2 px-2 mb-2;
+    /* Use Tailwind for other styles */
+    background-color: var(--bg-primary);
+    /* Apply custom variable */
+}
+
+label.input-label {
     @apply uppercase text-gray-400 text-xs mb-2 font-semibold;
 }
 
-.radio-togglers{
+.radio-togglers {
     @apply p-1 bg-gray-200 inline-flex cursor-pointer;
 }
-.radio-togglers div{
+
+.radio-togglers div {
     @apply p-2 px-4 text-gray-500 block flex items-center gap-2 cursor-pointer;
 }
-.radio-togglers input[type="radio"]{
+
+.radio-togglers input[type="radio"] {
     @apply hidden;
 }
-.radio-togglers input[type="radio"]:checked + div{
+
+.radio-togglers input[type="radio"]:checked+div {
     @apply bg-white text-blue-600;
 }
 
-.sortable-ghost{
-    opacity: .2;
+.sortable-ghost {
+    opacity: 0.2;
 }
 
-
-input#navCb:checked ~ aside{
-    left:0;
+input#navCb:checked~aside {
+    left: 0;
 }
-input#navCb:checked ~ .backdrop{
+
+input#navCb:checked~.backdrop {
     display: block;
 }
+
 /* LoadingSpinner.css */
 .loading-spinner-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Adjust based on where you're using the spinner */
-  }
+    height: 100vh;
+    /* Adjust based on where you're using the spinner */
+}
 
-  .loading-spinner {
+.loading-spinner {
     border: 4px solid rgba(0, 0, 0, 0.1);
     width: 36px;
     height: 36px;
     border-radius: 50%;
     border-left-color: #09f;
     animation: spin 1s ease infinite;
-  }
+}
 
-  @keyframes spin {
+@keyframes spin {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
+
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
+}

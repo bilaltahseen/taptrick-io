@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 
 export const metadata = {
-  title: "LinkTri Clone | Contact",
+  title: "Taptrick | Contact",
   description:
     "Share your links, social profiles, contact info and more on one page",
 };

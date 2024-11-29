@@ -1,7 +1,7 @@
 import LoginWithGoogle from "@/components/buttons/LoginWithGoogle";
 
 export const metadata = {
-  title: 'LinkTri Clone | Login',
+  title: 'Taptrick | Login',
   description: 'Share your links, social profiles, contact info and more on one page',
 }
 export default function LoginPage() {

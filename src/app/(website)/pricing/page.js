@@ -2,7 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 
 export const metadata = {
-  title: "LinkTri Clone | Pricing",
+  title: "Taptrick | Pricing",
   description:
     "Share your links, social profiles, contact info and more on one page",
 };
@@ -26,7 +26,7 @@ export default function Pricing() {
             <div className="text-center">
               <Link
                 href="/account"
-                className="inline-block bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-200 transition-colors"
+                className="inline-block bg-gray-800 text-white px-6 py-2 rounded hover:bg-black transition-colors"
               >
                 Get Started
               </Link>

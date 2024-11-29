@@ -94,7 +94,7 @@ export default function PageLinksForm({ page, user }) {
                   <div className="animate-pulse bg-gray-300 w-4 h-4 rounded-full" />
                 ) : (
           <FontAwesomeIcon
-            className="bg-blue-500 text-white p-1 rounded-full aspect-square"
+            className="bg-black text-white p-1 rounded-full aspect-square"
             icon={faPlus}
           />
           )}

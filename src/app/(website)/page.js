@@ -45,9 +45,9 @@ export default async function Home() {
           You never have to change the link in your bio again
         </h1>
         <p>
-          Back in 2016 LinkTri solved social media’s most annoying problem: only
-          having one link in your bio. LinkTri was the first ‘link in bio’
-          platform made to solve this problem. LinkTri has since become so much
+          Back in 2016 Taptrick solved social media’s most annoying problem: only
+          having one link in your bio. Taptrick was the first ‘link in bio’
+          platform made to solve this problem. Taptrick has since become so much
           more. Allowing businesses or creators to get more out of their social
           media, grow their following, easily take payments and take back
           control of how your content is discovered.
@@ -67,7 +67,7 @@ export default async function Home() {
       <div className="mt-8 flex justify-center">
         <Link
           href="/account"
-          className="flex items-center gap-2 border p-2 px-3 shadow rounded-md text-white bg-blue-500 hover:bg-blue-300 font-bold"
+          className="flex items-center gap-2 border p-2 px-3 shadow rounded-md text-white bg-gray-800 hover:bg-black font-bold"
         >
           Start now
         </Link>

@@ -19,7 +19,7 @@ export default async function Header() {
             height={40}
             width={40}
           />
-          <span className="font-extrabold text-2xl">LinkTri</span>
+          <span className="font-extrabold text-2xl">Taptrick</span>
         </Link>
 
         {/* Desktop Navigation Links - Centered */}
@@ -34,7 +34,7 @@ export default async function Header() {
           {!!session ? (
             <>
               <Link
-                className="flex items-center gap-2 border p-2 px-4 shadow rounded-md text-white bg-blue-500 hover:bg-blue-300 font-bold"
+                className="flex items-center gap-2 border p-2 px-4 shadow rounded-md text-white bg-black hover:bg-gray-800 font-bold"
                 href="/account"
               >
                 Account
@@ -43,7 +43,7 @@ export default async function Header() {
             </>
           ) : (
             <Link
-              className="flex items-center gap-2 border p-2 px-4 shadow rounded-md text-white bg-blue-500 hover:bg-blue-300 font-bold"
+              className="flex items-center gap-2 border p-2 px-4 shadow rounded-md text-white bg-black hover:bg-gray-800 font-bold"
               href="/login"
             >
               Sign In
