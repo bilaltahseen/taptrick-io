@@ -21,7 +21,7 @@ const items = [
   {
     Icon: FaGlobe,
     title: 'Create a custom mini-website in seconds',
-    description: 'Create your own Linktree in just seconds and customizeit in a way that reflects your brand or style.'
+    description: 'Create your own Taptric in just seconds and customizeit in a way that reflects your brand or style.'
   },
   {
     Icon: FaQrcode,
@@ -30,8 +30,8 @@ const items = [
   },
   {
     Icon: FaPlug,
-    title: 'Integrate your Linktree with your existing tech',
-    description: 'Linktree seamlessly connects to other platforms like Mailchimp, Vimeo, Zapier, Amazon, YouTube, Google Analytics, plus more!'
+    title: 'Integrate your Taptric with your existing tech',
+    description: 'Taptric seamlessly connects to other platforms like Mailchimp, Vimeo, Zapier, Amazon, YouTube, Google Analytics, plus more!'
   },
 ];
 
