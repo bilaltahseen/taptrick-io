@@ -27,26 +27,8 @@ To get a local copy up and running follow these simple steps.
 
 - Node.js
 - MongoDB
-
-### Installation
-
-1. Clone the repo
-   ```sh
-   git clone https://github.com/jeffjiang13/Linktree.git
-   ```
-2. Install NPM packages
-   ```sh
-   npm install
-   ```
-3. Create a `.env.local` file and add your MongoDB URI and NextAuth URL
-   ```
-   MONGO_URI=your_mongodb_uri
-   NEXTAUTH_URL=http://localhost:3000
-   ```
-4. Run the development server
-   ```sh
-   npm run dev
-   ```
+- Stripe Account (for payment integration)
+- Email Service (for sending emails)
 
 ## Project Structure
 
