@@ -115,10 +115,6 @@ export default async function UserPage({ params }) {
         />
       </div>
       <h2 className="text-2xl text-center mb-1">{page.displayName}</h2>
-      <h3 className="text-md flex gap-2 justify-center items-center">
-        <FontAwesomeIcon className="h-4" icon={faLocationDot} />
-        <span>{page.location}</span>
-      </h3>
       <div className="max-w-xs mx-auto text-center my-2">
         <p>{page.bio}</p>
       </div>
@@ -127,7 +123,7 @@ export default async function UserPage({ params }) {
           <Link
             key={buttonKey}
             href={buttonLink(buttonKey, page.buttons[buttonKey])}
-            className="rounded-full bg-white text-blue-950 p-2 flex items-center justify-center hover:bg-gray-200 border border-gray-300"
+            className="rounded-full bg-white text-blue-950 p-2 flex items-center justify-center hover:bg-gray-200 border border-black"
           >
             <FontAwesomeIcon
               className="w-5 h-5"
@@ -148,11 +144,11 @@ export default async function UserPage({ params }) {
               "&page=" +
               page.uri
             }
-            className="bg-white p-2 flex hover:bg-gray-100 rounded-md font-extrabold border-2 border-gray-300"
+            className="bg-white p-2 flex hover:bg-gray-100 rounded-md font-extrabold border-2 border-black"
             href={link.url}
           >
-            <div className="relative -left-7 w-18">
-              <div className="w-16 h-16 bg-blue-200 aspect-square relative flex items-center justify-center rounded-full border-2 border-gray-300">
+            <div className="w-18 mr-5">
+              <div className="w-16 h-16 bg-blue-200 aspect-square flex items-center justify-center rounded-full">
                 {link.icon && (
                   <Image
                     className="w-full h-full object-cover rounded-full"

@@ -1,3 +1,4 @@
+import LoginWithEmail from "@/components/buttons/LoginWithEmail";
 import LoginWithGoogle from "@/components/buttons/LoginWithGoogle";
 
 export const metadata = {
@@ -12,9 +13,9 @@ export default function LoginPage() {
           Sign In
         </h1>
         <p className="text-center mb-10 text-gray-500">
-          Sign in to your account using one of the methods below
+          Sign in to your account using your email
         </p>
-        <LoginWithGoogle />
+        <LoginWithEmail />
       </div>
     </div>
   );

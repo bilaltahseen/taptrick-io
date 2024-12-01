@@ -13,7 +13,8 @@ export async function upload(ev, callbackFn) {
         body: data,
       }).then(response => {
         if (response.ok) {
-          response.json().then(link => {
+          response.json().then(jsonResponse => {
+            const link = jsonResponse.link;
             callbackFn(link);
             resolve(link);
           });

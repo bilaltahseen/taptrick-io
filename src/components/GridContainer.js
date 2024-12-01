@@ -21,7 +21,7 @@ const items = [
   {
     Icon: FaGlobe,
     title: 'Create a custom mini-website in seconds',
-    description: 'Create your own Linktree in just seconds and customize it in a way that reflects your brand or style.'
+    description: 'Create your own Linktree in just seconds and customizeit in a way that reflects your brand or style.'
   },
   {
     Icon: FaQrcode,

@@ -12,14 +12,13 @@ export default async function Header() {
     <header className="bg-white border-b py-2">
       <div className="max-w-6xl mx-auto px-4 flex flex-wrap justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="flex items-center text-blue-500 hover:text-blue-300 hover:underline">
+        <Link href="/" className="flex items-center text-black hover:text-blue-300 hover:underline">
           <Image
             src={'/assets/logo.webp'}
             alt="logo"
             height={40}
             width={40}
           />
-          <span className="font-extrabold text-2xl">Taptrick</span>
         </Link>
 
         {/* Desktop Navigation Links - Centered */}
@@ -43,7 +42,7 @@ export default async function Header() {
             </>
           ) : (
             <Link
-              className="flex items-center gap-2 border p-2 px-4 shadow rounded-md text-white bg-black hover:bg-gray-800 font-bold"
+              className="flex items-center gap-2 border p-2 px-4 shadow rounded-md text-slate-50 bg-black hover:bg-gray-800 font-bold"
               href="/login"
             >
               Sign In

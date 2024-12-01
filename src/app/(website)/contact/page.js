@@ -1,14 +1,8 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  FaTwitter,
-  FaFacebookF,
-  FaGithub,
-  FaLinkedinIn,
-  FaBriefcase,
-} from "react-icons/fa";
-
+import {faFacebookF,faLinkedinIn,faXTwitter,faInstagram} from "@fortawesome/free-brands-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const metadata = {
   title: "Taptrick | Contact",
   description:
@@ -29,47 +23,41 @@ export default function Contact() {
           Get in Touch
         </h1>
 
-        <div className="flex flex-wrap justify-center gap-6 text-gray-600">
+        <div className="flex flex-wrap justify-center gap-6 text-black">
           <a
-            href="https://twitter.com/jeffjiang9"
-            className="hover:text-blue-400"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaTwitter size="2em" />
-          </a>
-          <a
-            href="https://www.facebook.com/jeff.jiang.9"
-            className="hover:text-blue-600"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaFacebookF size="2em" />
-          </a>
-          <a
-            href="https://github.com/jeffjiang13"
+            href="https://x.com/taptrickio"
             className="hover:text-gray-800"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaGithub size="2em" />
+            <FontAwesomeIcon icon={faXTwitter} height={"2em"}  />
           </a>
           <a
-            href="https://www.linkedin.com/in/jeffjiang13/"
-            className="hover:text-blue-500"
+            href="https://www.facebook.com/profile.php?id=61566870231503"
+            className="hover:text-gray-800"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaLinkedinIn size="2em" />
+            <FontAwesomeIcon icon={faFacebookF} height={"2em"}  />
           </a>
           <a
-            href="https://jeff-jiang.com"
-            className="hover:text-red-500"
+            href="https://www.linkedin.com/company/105237098/admin/dashboard/"
+            className="hover:text-gray-800"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaBriefcase size="2em" />
+            <FontAwesomeIcon icon={faLinkedinIn} height={"2em"}  />
           </a>
+
+          <a
+            href="https://www.instagram.com/taptrick.io/?hl=en"
+            className="hover:text-black"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FontAwesomeIcon icon={faInstagram} height={"2em"}  />
+          </a>
+         
         </div>
       </main>
     </div>

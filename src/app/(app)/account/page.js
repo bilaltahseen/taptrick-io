@@ -8,6 +8,7 @@ import mongoose from "mongoose";
 import {getServerSession} from "next-auth";
 import {redirect} from "next/navigation";
 import cloneDeep from 'clone-deep';
+import { User } from "@/models/User";
 export const metadata = {
   title: 'Taptrick | Account',
   description: 'Share your links, social profiles, contact info and more on one page',
@@ -19,6 +20,12 @@ export default async function AccountPage({searchParams}) {
     return redirect('/');
   }
   await mongoose.connect(process.env.MONGO_URI);
+  const user = await User.findOne({email: session?.user?.email});
+
+  if(!user.isSubscribed){
+    return redirect('/subscribe');
+  }
+
   const page = await Page.findOne({owner: session?.user?.email});
 
   // Check if the page exists before trying to clone it

@@ -54,26 +54,6 @@ export default async function Home() {
         </p>
       </div>
       <GridContainer />
-      <div className="mt-20 text-center max-w-5xl">
-        <h1 className=" mb-5 text-5xl font-bold">
-          Turn your Link In Bio into your own mini-website
-        </h1>
-        <p>
-          It takes seconds to turn your bio into a mini website, allowing your
-          followers to engage with your content, discover you on other platforms
-          or purchase and support you with just one simple link.
-        </p>
-      </div>
-      <div className="mt-8 flex justify-center">
-        <Link
-          href="/account"
-          className="flex items-center gap-2 border p-2 px-3 shadow rounded-md text-white bg-gray-800 hover:bg-black font-bold"
-        >
-          Start now
-        </Link>
-      </div>
-      <ImageGrid images={imageUrls} /> {/* Add the ImageGrid component */}
-
     </main>
   );
 }

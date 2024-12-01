@@ -37,7 +37,7 @@ const HamburgerMenu = ({ session }) => {
             ) : (
               <Link
                 href="/login"
-                className="flex items-center gap-2 border p-2 px-4 shadow rounded-md text-white bg-black hover:bg-gray-800 font-bold"
+                className="flex items-center gap-2 border p-2 px-4 shadow rounded-md text-slate-50 bg-black hover:bg-gray-800 font-bold"
                 onClick={toggleMenu}
               >
                 Sign In

@@ -6,7 +6,9 @@ if (!process.env.MONGO_URI) {
 }
 
 const uri = process.env.MONGO_URI
-const options = {}
+const options = {
+  ssl: process.env.NODE_ENV === "production",
+}
 
 let client
 let clientPromise

@@ -14,7 +14,7 @@ export default function AppSidebar() {
         href={'/account'}
         className={
           "flex gap-4 p-2 "
-          + (path === '/account' ? 'text-blue-500 hover:underline' : 'hover:underline')
+          + (path === '/account' ? 'text-black hover:underline' : 'hover:underline')
         }>
         <FontAwesomeIcon
           fixedWidth={true}
@@ -27,7 +27,7 @@ export default function AppSidebar() {
         href={'/analytics'}
         className={
           "flex gap-4 p-2 "
-          + (path === '/analytics' ? 'text-blue-500 hover:underline' : 'hover:underline')
+          + (path === '/analytics' ? 'text-black hover:underline' : 'hover:underline')
         }>
         <FontAwesomeIcon
           fixedWidth={true}

@@ -11,17 +11,15 @@ export default function About() {
     <div className="flex flex-col items-center justify-center min-h-screen py-2 mt-10">
       <main className="flex flex-col items-center w-full flex-1 px-4 md:px-20 text-center">
         <h1 className="text-4xl md:text-6xl font-bold text-gray-800">
-          About <span className="text-blue-500">Taptrick</span>
+          About <span className="text-black">Taptrick</span>
         </h1>
 
         <p className="mt-4 text-lg md:text-xl text-gray-600">
-          Taptrick is a dynamic and user-friendly platform designed to streamline
-          your online presence. Inspired by actual{" "}
-          <a className="text-blue-500" href="https://linktr.ee/">
-            Linktree
-          </a>
-          , it allows users to create a personalized and easily shareable page
-          that houses all their important links in one place.
+          Taptrick is a dynamic and user-friendly platform designed to streamline your online presence. It allows users to create a personalized and easily shareable page that houses all their important links in one place.
+        </p>
+
+        <p className="mt-4 text-lg md:text-xl text-gray-600">
+          Whether you're using it alongside your Taptrick devices or as a stand alone, this platform is tailored to enhance convenience and connectivity.
         </p>
 
         <div className="mt-8 text-gray-600 text-left">
@@ -40,7 +38,7 @@ export default function About() {
         </div>
 
         <div className="mt-8">
-          <Link href="/" className="text-lg text-blue-500 hover:underline">
+          <Link href="/" className="text-lg text-black hover:underline">
             Go back home
           </Link>
         </div>

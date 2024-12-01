@@ -6,7 +6,7 @@ const nextConfig = {
         hostname: '*.googleusercontent.com'
       },
       {
-        hostname: 'linktree13.s3.amazonaws.com',
+        hostname: 'taptrick.s3.eu-west-2.amazonaws.com',
       },
     ],
   }

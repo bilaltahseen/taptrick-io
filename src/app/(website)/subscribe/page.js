@@ -5,9 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CheckoutButton from "@/components/buttons/CheckoutButton";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { User } from "@/models/User";
+import mongoose from "mongoose";
+import { redirect } from "next/navigation";
 
 export const metadata = {
-  title: "Taptrick | Pricing",
+  title: "Taptrick | Subscribe",
   description:
     "Share your links, social profiles, contact info and more on one page",
 };
@@ -29,9 +32,21 @@ function classNames(...classes) {
 }
 
 
-export default async function Pricing() {
+export default async function Subscribe({searchParams}) {
 
+  const session = await getServerSession(authOptions);
+  const desiredUsername = searchParams?.desiredUsername;
 
+  if (!session) {
+    return redirect('/');
+  }
+
+  await mongoose.connect(process.env.MONGO_URI);
+  const user = await User.findOne({email: session?.user?.email});
+
+  if(user.isSubscribed){
+    return redirect('/account');
+  }
 
   return (
     <div className="relative isolate px-6 py-24 sm:py-32 lg:px-8">
@@ -84,13 +99,7 @@ export default async function Pricing() {
                 </li>
               ))}
             </ul>
-            <a
-              href={"/login"}
-              aria-describedby={"sign-up-for-basic-plan"}
-              className={"mt-8 block rounded-md px-3.5 py-2.5 text-center text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:mt-10 text-black ring-1 ring-inset ring-black hover:ring-gray-700 focus-visible:outline-black"}
-            >
-              Get started today
-            </a>
+            <CheckoutButton session={session} />
           </div>
         ))}
       </div>

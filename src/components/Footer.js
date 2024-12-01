@@ -1,20 +1,20 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaTwitter, FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import { faFacebookF, faLinkedinIn, faXTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Footer() {
   return (
     <footer className="bg-white border-t py-4 mt-8">
       <div className="max-w-6xl mx-auto px-4 flex flex-wrap justify-between items-center">
         {/* Logo and Name */}
-        <div className="flex items-center text-blue-500 hover:text-blue-300 mb-1 md:mb-0">
+        <div className="flex items-center text-black hover:text-blue-300 mb-1 md:mb-0">
           <Image
             src={'/assets/logo.webp'}
             alt="logo"
             height={40}
             width={40}
           />
-          <span className="font-extrabold text-2xl ml-2">Taptrick</span>
         </div>
 
         {/* Copyright for mobile */}
@@ -24,17 +24,17 @@ export default function Footer() {
 
         {/* Social Media Icons */}
         <div className="flex items-center gap-4 order-2 md:order-3 mb-1 md:mb-0">
-          <Link href="https://twitter.com/jeffjiang9" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-300">
-            <FaTwitter size="1.5em" />
+          <Link href="https://x.com/taptrickio" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-800">
+            <FontAwesomeIcon icon={faXTwitter} height={"1.5em"} />
           </Link>
-          <Link href="https://www.facebook.com/jeff.jiang.9" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-300">
-            <FaFacebookF size="1.5em" />
+          <Link href="https://www.facebook.com/profile.php?id=61566870231503" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-800">
+            <FontAwesomeIcon icon={faFacebookF} height={"1.5em"} />
           </Link>
-          <Link href="https://github.com/jeffjiang13" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-gray-500">
-            <FaGithub size="1.5em" />
+          <Link href="https://www.linkedin.com/company/105237098/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-800">
+            <FontAwesomeIcon icon={faLinkedinIn} height={"1.5em"} />
           </Link>
-          <Link href="https://www.linkedin.com/in/jeffjiang13/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-300">
-            <FaLinkedinIn size="1.5em" />
+          <Link href="https://www.instagram.com/taptrick.io/?hl=en" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-800">
+            <FontAwesomeIcon icon={faInstagram} height={"1.5em"} />
           </Link>
         </div>
       </div>

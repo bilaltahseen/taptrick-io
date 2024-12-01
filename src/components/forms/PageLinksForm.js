@@ -88,7 +88,7 @@ export default function PageLinksForm({ page, user }) {
         <button
           onClick={addNewLink}
           type="button"
-          className="text-blue-500 text-lg flex gap-2 items-center cursor-pointer"
+          className="text-black text-lg flex gap-2 items-center cursor-pointer"
         >
           {isIconLoading ? (
                   <div className="animate-pulse bg-gray-300 w-4 h-4 rounded-full" />
