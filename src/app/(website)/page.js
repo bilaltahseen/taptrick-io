@@ -6,17 +6,7 @@ import GridContainer from "@/components/GridContainer";
 import Link from "next/link";
 import ImageGrid from "@/components/ImageGrid";
 
-const imageUrls = [
-  "/assets/polly.png",
-  "/assets/preview.png",
-  "/assets/doggie.png",
-  "/assets/manfred.png",
-  "/assets/walter.png",
-  "/assets/model.png",
-  "/assets/cat.png",
-  "/assets/model1.png",
-
-];
+const imageUrls = ["/assets/preview.png",];
 export default async function Home() {
   const session = await getServerSession(authOptions);
   return (
@@ -32,13 +22,7 @@ export default async function Home() {
         </div>
         <Carousel images={imageUrls} />
 
-        {/* <Image
-          src={'/assets/preview.png'}
-          alt="banner image"
-          width={290} // Adjust the width as needed
-          height={290} // Adjust the height to maintain the aspect ratio
-          className="rounded-2xl border-2 shadow-gray-500/20 shadow-lg hover:shadow-2xl transition-shadow"
-        /> */}
+       
       </section>
       <div className="mt-20 text-center max-w-5xl">
         <h1 className=" mb-5 text-5xl font-bold">
