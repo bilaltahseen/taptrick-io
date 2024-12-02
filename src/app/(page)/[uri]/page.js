@@ -148,7 +148,7 @@ export default async function UserPage({ params }) {
             href={link.url}
           >
             <div className="w-18 mr-5">
-              <div className="w-16 h-16 bg-black aspect-square flex items-center justify-center rounded-full">
+              <div className="w-16 h-16 aspect-square flex items-center justify-center rounded-full">
                 {link.icon && (
                   <Image
                     className="w-full h-full object-cover rounded-full"
