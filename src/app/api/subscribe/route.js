@@ -43,6 +43,7 @@ export async function POST(req) {
             customer_email: email,
             success_url: `${process.env.NEXT_PUBLIC_URL}/account`,
             cancel_url: `${process.env.NEXT_PUBLIC_URL}/subscribe`,
+            
         });
         return Response.json({ url: session.url }, { status: 200 });
     } catch (error) {

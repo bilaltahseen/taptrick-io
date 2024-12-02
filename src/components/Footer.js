@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="bg-white border-t py-4 mt-8">
       <div className="max-w-6xl mx-auto px-4 flex flex-wrap justify-between items-center">
         {/* Logo and Name */}
-        <div className="flex items-center text-black hover:text-blue-300 mb-1 md:mb-0">
+        <div className="flex items-center text-black hover:text-gray-700 mb-1 md:mb-0">
           <Image
             src={'/assets/logo.webp'}
             alt="logo"

@@ -6,6 +6,11 @@ import EmailProvider from "next-auth/providers/email";
 export const authOptions = {
   secret: process.env.AUTH_SECRET,
   adapter: MongoDBAdapter(clientPromise),
+  theme: {
+    colorScheme: "auto", // "auto" | "dark" | "light"
+    brandColor: "#000", // Hex color code
+    buttonText: "#fff" // Hex color code
+  },
   providers: [
     EmailProvider({
       server: process.env.EMAIL_SERVER,

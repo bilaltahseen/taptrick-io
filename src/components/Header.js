@@ -12,7 +12,7 @@ export default async function Header() {
     <header className="bg-white border-b py-2">
       <div className="max-w-6xl mx-auto px-4 flex flex-wrap justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="flex items-center text-black hover:text-blue-300 hover:underline">
+        <Link href="/" className="flex items-center text-black hover:text-gray-700 hover:underline">
           <Image
             src={'/assets/logo.webp'}
             alt="logo"

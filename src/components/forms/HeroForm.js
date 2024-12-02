@@ -45,7 +45,7 @@ export default function HeroForm({user}) {
       <button
         type="submit"
         className="bg-black hover:bg-gray-800 rounded-md text-slate-50 py-4 px-6 whitespace-nowrap">
-        Join for Free
+        Join for £2 / month
       </button>
     </form>
   );

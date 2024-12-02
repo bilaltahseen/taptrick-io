@@ -29,12 +29,7 @@ export default async function Home() {
           You never have to change the link in your bio again
         </h1>
         <p>
-          Back in 2016 Taptrick solved social media’s most annoying problem: only
-          having one link in your bio. Taptrick was the first ‘link in bio’
-          platform made to solve this problem. Taptrick has since become so much
-          more. Allowing businesses or creators to get more out of their social
-          media, grow their following, easily take payments and take back
-          control of how your content is discovered.
+        Taptrick was created to solve one of social media’s most frustrating challenges: the limitation of having only one link in your bio. Since then, Taptrick has evolved into so much more, empowering businesses and creators to maximize their social media potential, grow their following, and take control of how their content is discovered.
         </p>
       </div>
       <GridContainer />

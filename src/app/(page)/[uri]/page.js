@@ -123,7 +123,7 @@ export default async function UserPage({ params }) {
           <Link
             key={buttonKey}
             href={buttonLink(buttonKey, page.buttons[buttonKey])}
-            className="rounded-full bg-white text-blue-950 p-2 flex items-center justify-center hover:bg-gray-200 border border-black"
+            className="rounded-full bg-white text-black p-2 flex items-center justify-center hover:bg-gray-700 border border-black"
           >
             <FontAwesomeIcon
               className="w-5 h-5"
@@ -148,7 +148,7 @@ export default async function UserPage({ params }) {
             href={link.url}
           >
             <div className="w-18 mr-5">
-              <div className="w-16 h-16 bg-blue-200 aspect-square flex items-center justify-center rounded-full">
+              <div className="w-16 h-16 bg-black aspect-square flex items-center justify-center rounded-full">
                 {link.icon && (
                   <Image
                     className="w-full h-full object-cover rounded-full"
