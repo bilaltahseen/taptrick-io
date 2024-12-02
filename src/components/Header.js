@@ -22,7 +22,7 @@ export default async function Header() {
         </Link>
 
         {/* Desktop Navigation Links - Centered */}
-        <nav className="hidden sm:flex justify-center gap-10 text-slate-500 text-sm flex-grow font-bold">
+        <nav className="hidden sm:flex justify-center gap-10 text-black text-sm flex-grow font-bold">
           <Link href="/about" className="hover:underline">About</Link>
           <Link href="/pricing" className="hover:underline">Pricing</Link>
           <Link href="/contact" className="hover:underline">Contact</Link>
