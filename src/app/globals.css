@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: "Alilato";
+    src: url('/assets/alilato-extra-light.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+  }
+
 /* Custom variables */
 :root {
     --bg-primary: #f8f8f8;

@@ -53,8 +53,8 @@ const AccountContainer = ({ page, user }) => {
                     <span>Save</span>
                 </SubmitButton>
             </div>
-            <div className="flex flex-col items-center justify-center mb-2 underline">
-                <Link target="_blank" className="font-semibold" href={"/" + page.uri}>/{page.uri}</Link>
+            <div className="max-w-[200px] mx-auto mt-4 max-w-xs mb-4 bg-gray-800 disabled:bg-black text-white disabled:text-gray-200 py-2 px-4 mx-auto w-full flex gap-2 items-center justify-center hover:bg-gray-800 rounded-md flex flex-col items-center justify-center">
+                <Link target="_blank"  href={"/" + page.uri}>Preview Account</Link>
             </div>
         </form>
     )
