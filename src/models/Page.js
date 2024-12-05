@@ -11,6 +11,8 @@ const PageSchema = new Schema({
   bgImage: {type: String, default: ''},
   buttons: {type: Object, default: {}},
   links: {type: Object, default: []},
+  btnIconColor: {type: String, default: '#000'},
+  textColor: {type: String, default: '#000'},
 }, {timestamps: true});
 
 export const Page = models?.Page || model('Page', PageSchema);

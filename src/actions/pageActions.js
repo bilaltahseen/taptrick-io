@@ -1,9 +1,56 @@
 'use server';
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { allButtons } from "@/constants/buttons";
 import { Page } from "@/models/Page";
 import { User } from "@/models/User";
 import mongoose from "mongoose";
 import { getServerSession } from "next-auth";
+
+export async function saveAll(formData, links) {
+  mongoose.connect(process.env.MONGO_URI);
+  const session = await getServerSession(authOptions);
+
+  if (!session) {
+    return false;
+  }
+
+  const user = await User.findOne({ email: session?.user?.email });
+
+  if (!user.isSubscribed) {
+    return false;
+  }
+
+  const dataKeys = ['displayName', 'location', 'bio', 'bgType', 'bgColor', 'bgImage', 'btnIconColor','textColor'];
+
+  const dataToUpdate = {};
+
+  if (formData.has('avatar')) {
+    const avatarLink = formData.get('avatar');
+    await User.updateOne({ email: session.user?.email }, { image: avatarLink },);
+  }
+
+  for (const key of dataKeys) {
+    if (formData.has(key)) {
+      dataToUpdate[key] = formData.get(key);
+    }
+  }
+
+  const buttonsValues = allButtons.reduce((acc, button) => {
+    if (formData.has(button.key)) {
+      acc[button.key] = formData.get(button.key);
+    }
+    return acc;
+  }, {})
+
+
+  dataToUpdate.buttons = buttonsValues;
+  dataToUpdate.links = links;
+
+  await Page.updateOne({ owner: session?.user?.email }, dataToUpdate);
+
+  return true;
+
+}
 
 export async function savePageSettings(formData) {
   mongoose.connect(process.env.MONGO_URI);

@@ -1,15 +1,14 @@
 'use client';
-import {faGoogle} from "@fortawesome/free-brands-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {signIn} from "next-auth/react";
+import Image from "next/image";
 
 export default function LoginWithGoogle() {
   return (
     <button
-      onClick={() => signIn('google', { callbackUrl: '/account' })}
-      className="bg-white shadow text-center w-full py-4 flex gap-3 items-center justify-center rounded-md hover:bg-gray-200">
-      <FontAwesomeIcon icon={faGoogle} className="h-6" />
-      <span>Sign in with Google</span>
+      onClick={() => signIn('google', { callbackUrl: '/account'})}
+      className="bg-white text-black shadow text-center w-full px-3 py-1.5 text-sm/6 font-semibold flex gap-3 items-center justify-center rounded-md hover:bg-gray-100">
+        <Image src="/assets/google-icon.svg" alt="Google Logo" width={20} height={20} />
+      <span>Google</span>
     </button>
   );
 }

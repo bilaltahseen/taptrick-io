@@ -1,23 +1,16 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import Chart from "@/components/Chart";
 import SectionBox from "@/components/layout/SectionBox";
 import { Event } from "@/models/Event";
 import { Page } from "@/models/Page";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { differenceInDays, formatISO9075, isToday } from "date-fns";
+import { isToday } from "date-fns";
 import mongoose from "mongoose";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import {
-  CartesianGrid,
-  Legend,
-  Line,
-  LineChart,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
+import LineChart from "@/components/Charts/LineChart";
+import BarChart from "@/components/Charts/BarChart";
+
 
 export const metadata = {
   title: "Taptrick | Analytics",
@@ -63,6 +56,23 @@ export default async function AnalyticsPage() {
     },
   ]);
 
+  const groupedLocation = await Event.aggregate([
+    {
+      $match: {
+        type: "click",
+        page: page.uri,
+      },
+    },
+    {
+      $group: {
+        _id: "$location",
+        count: {
+          $count: {},
+        },
+      },
+    },
+  ])
+
   const clicks = await Event.find({
     type: "click",
     page: page.uri,
@@ -72,7 +82,7 @@ export default async function AnalyticsPage() {
     <div>
       <SectionBox>
         <h2 className="text-xl mb-6 text-center">Views</h2>
-        <Chart
+        <LineChart
           data={groupedViews.map((o) => ({
             date: o._id,
             views: o.count,
@@ -128,6 +138,13 @@ export default async function AnalyticsPage() {
             </div>
           </div>
         ))}
+      </SectionBox>
+      <SectionBox>
+        <h2 className="text-xl mb-6 text-center">Location</h2>
+        <BarChart data={groupedLocation.map((o) => ({
+          location: o._id,
+          total: o.count,
+        }))} />
       </SectionBox>
     </div>
   );

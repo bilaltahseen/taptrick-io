@@ -47,6 +47,27 @@ function buttonLink(key, value) {
   return value;
 }
 
+function getHoverShade(color, amount = 20) {
+  let usePound = false;
+
+  if (color[0] === "#") {
+    color = color.slice(1);
+    usePound = true;
+  }
+
+  const num = parseInt(color, 16);
+  let r = (num >> 16) + amount;
+  let b = ((num >> 8) & 0x00FF) + amount;
+  let g = (num & 0x0000FF) + amount;
+
+  r = Math.max(Math.min(255, r), 0);
+  b = Math.max(Math.min(255, b), 0);
+  g = Math.max(Math.min(255, g), 0);
+
+  return (usePound ? "#" : "") + ((r << 16) | (b << 8) | g).toString(16).padStart(6, "0");
+}
+
+
 export default async function UserPage({ params }) {
   const uri = params.uri;
   mongoose.connect(process.env.MONGO_URI);
@@ -114,19 +135,21 @@ export default async function UserPage({ params }) {
           height={256}
         />
       </div>
-      <h2 className="text-2xl text-center mb-1">{page.displayName}</h2>
+      <h2 style={{ color: page.textColor }} className="text-2xl text-center mb-1">{page.displayName}</h2>
       <div className="max-w-xs mx-auto text-center my-2">
-        <p>{page.bio}</p>
+        <p style={{ color: page.textColor }} >{page.bio}</p>
       </div>
       <div className="flex gap-2 justify-center mt-4 pb-4">
         {Object.keys(page.buttons).map((buttonKey) => (
           <Link
             key={buttonKey}
             href={buttonLink(buttonKey, page.buttons[buttonKey])}
-            className="rounded-full bg-white text-black p-2 flex items-center justify-center hover:bg-gray-700 border border-black"
+            className={`rounded-full text-black p-2 flex items-center justify-center border hover:scale-105 transform transition-all duration-300 ease-in-out hover:bg-gray-100`}
+            style={{ borderColor: page.btnIconColor }}
           >
             <FontAwesomeIcon
               className="w-5 h-5"
+              style={{ color: page.btnIconColor }}
               icon={buttonsIcons[buttonKey]}
             />
           </Link>
@@ -138,7 +161,6 @@ export default async function UserPage({ params }) {
             key={link.url}
             target="_blank"
             ping={
-              process.env.URL +
               "api/click?url=" +
               btoa(link.url) +
               "&page=" +

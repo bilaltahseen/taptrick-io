@@ -1,7 +1,7 @@
 'use client';
 import LogoutButton from "@/components/buttons/LogoutButton";
 import {faFileLines} from "@fortawesome/free-regular-svg-icons";
-import {faArrowLeft, faChartLine} from "@fortawesome/free-solid-svg-icons";
+import {faArrowLeft, faChartLine, faUserPlus} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
@@ -35,6 +35,19 @@ export default function AppSidebar() {
           className={'w-6 h-6'}
         />
         <span className="">Analytics</span>
+      </Link>
+      <Link
+        href={'/subscription'}
+        className={
+          "flex gap-4 p-2 "
+          + (path === '/analytics' ? 'text-black hover:underline' : 'hover:underline')
+        }>
+        <FontAwesomeIcon
+          fixedWidth={true}
+          icon={faUserPlus}
+          className={'w-6 h-6'}
+        />
+        <span className="">Subscription</span>
       </Link>
       <LogoutButton
         iconLeft={true}

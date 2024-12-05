@@ -1,22 +1,19 @@
-import LoginWithEmail from "@/components/buttons/LoginWithEmail";
-import LoginWithGoogle from "@/components/buttons/LoginWithGoogle";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import SignIn from "@/components/forms/SignIn";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
 export const metadata = {
   title: 'Taptrick | Login',
   description: 'Share your links, social profiles, contact info and more on one page',
 }
-export default function LoginPage() {
-  return (
-    <div>
-      <div className="p-4 max-w-xs mx-auto mt-10">
-        <h1 className="text-4xl font-bold text-center mb-2">
-          Sign In
-        </h1>
-        <p className="text-center mb-10 text-gray-500">
-          Sign in to your account using your email
-        </p>
-        <LoginWithEmail />
-      </div>
-    </div>
-  );
+export default async function LoginPage() {
+
+  const session = await getServerSession(authOptions);
+
+  if (session) {
+    return redirect('/account');
+  }
+
+  return <SignIn />;
 }

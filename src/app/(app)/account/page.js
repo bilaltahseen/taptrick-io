@@ -9,22 +9,33 @@ import {getServerSession} from "next-auth";
 import {redirect} from "next/navigation";
 import cloneDeep from 'clone-deep';
 import { User } from "@/models/User";
+import AccountContainer from "@/components/containers/Account";
 export const metadata = {
   title: 'Taptrick | Account',
   description: 'Share your links, social profiles, contact info and more on one page',
 }
 export default async function AccountPage({searchParams}) {
   const session = await getServerSession(authOptions);
+
   const desiredUsername = searchParams?.desiredUsername;
+
   if (!session) {
     return redirect('/');
   }
+
   await mongoose.connect(process.env.MONGO_URI);
   const user = await User.findOne({email: session?.user?.email});
+
+  if (!user) {
+    return redirect('/');
+  }
 
   if(!user.isSubscribed){
     return redirect('/subscribe');
   }
+
+  const leanUser = cloneDeep(user.toJSON());
+  leanUser._id = leanUser._id.toString();
 
   const page = await Page.findOne({owner: session?.user?.email});
 
@@ -34,11 +45,7 @@ export default async function AccountPage({searchParams}) {
     leanPage._id = leanPage._id.toString();
 
     return (
-      <>
-        <PageSettingsForm page={leanPage} user={session.user} />
-        <PageButtonsForm page={leanPage} user={session.user} />
-        <PageLinksForm page={leanPage} user={session.user} />
-      </>
+      <AccountContainer page={leanPage} user={leanUser} />
     );
   }
 
