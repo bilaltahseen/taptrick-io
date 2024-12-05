@@ -20,7 +20,7 @@ export async function saveAll(formData, links) {
     return false;
   }
 
-  const dataKeys = ['displayName', 'location', 'bio', 'bgType', 'bgColor', 'bgImage', 'btnIconColor','textColor'];
+  const dataKeys = ['displayName', 'location', 'bio', 'bgType', 'bgColor', 'bgImage', 'btnIconColor','textColor','pageBgColor'];
 
   const dataToUpdate = {};
 

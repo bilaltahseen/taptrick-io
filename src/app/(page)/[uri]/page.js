@@ -117,7 +117,7 @@ export default async function UserPage({ params }) {
   }
   await Event.create({ uri: uri, page: uri, type: "view" });
   return (
-    <div className="bg-white min-h-screen">
+    <div style={{ backgroundColor: page.pageBgColor }} className="bg-white min-h-screen">
       <div
         className="h-36 bg-gray-400 bg-cover bg-center"
         style={
@@ -166,6 +166,7 @@ export default async function UserPage({ params }) {
               "&page=" +
               page.uri
             }
+            style={{ backgroundColor: link.infillColor, borderColor: link.outlineColor, color: link.textColor }}
             className="bg-white p-2 flex hover:bg-gray-100 rounded-md font-extrabold border-2 border-black"
             href={link.url}
           >

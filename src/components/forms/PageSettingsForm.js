@@ -21,8 +21,10 @@ export default function PageSettingsForm({ page, user }) {
   const [isIconLoading, setIsIconLoading] = useState(true);
 
   const [textColor, setTextColor] = useState(page.textColor);
+  const [pageBgColor, setPageBgColor] = useState(page.pageBgColor);
 
   const handleTextColor = (e) => setTextColor(e.target.value);
+  const handlePageBgColor = (e) => setPageBgColor(e.target.value);
 
   async function handleCoverImageChange(ev) {
     await upload(ev, (link) => {
@@ -168,12 +170,22 @@ export default function PageSettingsForm({ page, user }) {
             placeholder="Your bio goes here..."
           />
 
-          <div className="mt-3">
-            <label for="textColor" className="block text-sm font-medium mb-2 input-label">Text Color</label>
-            <div className="flex justify-start items-center gap-4 mt-4">
-              <input type="color" className="p-1 h-10 w-14 block bg-white cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none" id="textColor" name="textColor" value={textColor} onChange={handleTextColor} title="Choose your color" />
+          <div className="mt-3 flex justify-start gap-4">
+            <div >
+              <label for="textColor" className="block text-sm font-medium mb-2 input-label">Text Color</label>
+              <div className="flex justify-start items-center gap-4 mt-4">
+                <input type="color" className="p-1 h-10 w-14 block bg-white cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none" id="textColor" name="textColor" value={textColor} onChange={handleTextColor} title="Choose your color" />
+              </div>
+            </div>
+
+            <div >
+              <label for="pageBgColor" className="block text-sm font-medium mb-2 input-label">Page Background Color</label>
+              <div className="flex justify-start items-center gap-4 mt-4">
+                <input type="color" className="p-1 h-10 w-14 block bg-white cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none" id="pageBgColor" name="pageBgColor" value={pageBgColor} onChange={handlePageBgColor} title="Choose your color" />
+              </div>
             </div>
           </div>
+
 
         </div>
       </SectionBox>

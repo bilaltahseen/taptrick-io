@@ -15,7 +15,7 @@ export default function SignIn() {
 
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
-    
+
 
     const router = useRouter();
 
@@ -85,9 +85,13 @@ export default function SignIn() {
 
                     <div>
                         <div className="flex items-center justify-between">
+                           
                             <label htmlFor="password" className="block text-sm/6 font-medium text-gray-900">
                                 Password
                             </label>
+                            <div class="text-sm">
+                                <a href="/forgot-password" class="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
+                            </div>
                         </div>
                         <div className="mt-2">
                             <input

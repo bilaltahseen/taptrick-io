@@ -10,6 +10,8 @@ const UserSchema = new Schema({
   isSubscribed: { type: Boolean, default: false },
   stripeCustomerId: { type: String, default: "" },
   stripeSubscriptionId: { type: String, default: "" },
+  passwordResetToken: { type: String, default: "" },
+  passwordResetAt: { type: Date, default: null },
 });
 
 export const User = models?.User || model('User', UserSchema);

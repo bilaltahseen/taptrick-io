@@ -181,6 +181,41 @@ export default function PageLinksForm({ page, user, links, setLinks }) {
                   type="text"
                   placeholder="url"
                 />
+                <div className="flex justify-start gap-4">
+                  <div>
+                    <label className="block input-label">Text Color:</label>
+                    <input
+                      className="rounded-md"
+                      value={l.textColor}
+                      onChange={(ev) => handleLinkChange(l.key, "textColor", ev)}
+                      type="color"
+                      defaultValue={"#000000"}
+                      placeholder="text color">
+                    </input>
+                  </div>
+                  <div>
+                    <label className="block input-label">Outline Color:</label>
+                    <input
+                      className="rounded-md"
+                      value={l.outlineColor}
+                      onChange={(ev) => handleLinkChange(l.key, "outlineColor", ev)}
+                      type="color"
+                      defaultValue={"#000000"}
+                      placeholder="text color">
+                    </input>
+                  </div>
+                  <div>
+                    <label className="block input-label">Infill Color:</label>
+                    <input
+                      className="rounded-md"
+                      value={l.infillColor}
+                      onChange={(ev) => handleLinkChange(l.key, "infillColor", ev)}
+                      type="color"
+                      defaultValue={"#ffffff"}
+                      placeholder="text color">
+                    </input>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
