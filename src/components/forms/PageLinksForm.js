@@ -142,7 +142,6 @@ export default function PageLinksForm({ page, user, links, setLinks }) {
                     )}
                     <span>Change icon</span>
                   </label>
-                  <p className="text-gray-500 text-sm my-2">Icon size should be 300px by 300px</p>
                   <button
                     onClick={() => removeLink(l.key)}
                     type="button"
