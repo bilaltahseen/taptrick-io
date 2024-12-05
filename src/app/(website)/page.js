@@ -3,8 +3,6 @@ import HeroForm from "@/components/forms/HeroForm";
 import { getServerSession } from "next-auth";
 import Carousel from "@/components/Carousel";
 import GridContainer from "@/components/GridContainer";
-import Link from "next/link";
-import ImageGrid from "@/components/ImageGrid";
 
 const imageUrls = ["/assets/preview.png",];
 export default async function Home() {

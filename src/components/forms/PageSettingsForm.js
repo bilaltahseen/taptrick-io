@@ -144,6 +144,7 @@ export default function PageSettingsForm({ page, user }) {
             <input type="hidden" name="avatar" value={avatar} />
           </div>
         </div>
+        <p className="my-4 text-gray-500">Header Recommended size: 570px by 210px best for mobile.</p>
         <div className="p-0">
           <label className="input-label" htmlFor="nameIn">
             Display name

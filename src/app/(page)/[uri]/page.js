@@ -23,6 +23,7 @@ import mongoose from "mongoose";
 import { btoa } from "next/dist/compiled/@edge-runtime/primitives";
 import Image from "next/image";
 import Link from "next/link";
+import Popover from "@/components/Popover";
 
 export const buttonsIcons = {
   email: faEnvelope,
@@ -46,27 +47,6 @@ function buttonLink(key, value) {
   }
   return value;
 }
-
-function getHoverShade(color, amount = 20) {
-  let usePound = false;
-
-  if (color[0] === "#") {
-    color = color.slice(1);
-    usePound = true;
-  }
-
-  const num = parseInt(color, 16);
-  let r = (num >> 16) + amount;
-  let b = ((num >> 8) & 0x00FF) + amount;
-  let g = (num & 0x0000FF) + amount;
-
-  r = Math.max(Math.min(255, r), 0);
-  b = Math.max(Math.min(255, b), 0);
-  g = Math.max(Math.min(255, g), 0);
-
-  return (usePound ? "#" : "") + ((r << 16) | (b << 8) | g).toString(16).padStart(6, "0");
-}
-
 
 export default async function UserPage({ params }) {
   const uri = params.uri;
@@ -140,20 +120,30 @@ export default async function UserPage({ params }) {
         <p style={{ color: page.textColor }} >{page.bio}</p>
       </div>
       <div className="flex gap-2 justify-center mt-4 pb-4">
-        {Object.keys(page.buttons).map((buttonKey) => (
-          <Link
-            key={buttonKey}
-            href={buttonLink(buttonKey, page.buttons[buttonKey])}
-            className={`rounded-full text-black p-2 flex items-center justify-center border hover:scale-105 transform transition-all duration-300 ease-in-out hover:bg-gray-100`}
-            style={{ borderColor: page.btnIconColor }}
-          >
-            <FontAwesomeIcon
-              className="w-5 h-5"
-              style={{ color: page.btnIconColor }}
-              icon={buttonsIcons[buttonKey]}
-            />
-          </Link>
-        ))}
+        {Object.keys(page.buttons).map((buttonKey) => {
+          if (buttonKey == "email") {
+            return (
+              <Popover key={buttonKey} buttonKey={buttonKey} buttonsIcons={buttonsIcons} page={page} />
+            )
+          } else {
+            return (
+              <Link
+                target="_blank"
+                key={buttonKey}
+                href={buttonLink(buttonKey, page.buttons[buttonKey])}
+                className={`rounded-full text-black p-2 flex items-center justify-center border hover:scale-105 transform transition-all duration-300 ease-in-out hover:bg-gray-100`}
+                style={{ borderColor: page.btnIconColor }}
+              >
+                <FontAwesomeIcon
+                  className="w-5 h-5"
+                  style={{ color: page.btnIconColor }}
+                  icon={buttonsIcons[buttonKey]}
+                />
+              </Link>
+            )
+          }
+        }
+        )}
       </div>
       <div className="max-w-2xl mx-auto grid md:grid-cols-1 gap-6 p-4 px-8">
         {page.links.map((link) => (
@@ -168,7 +158,7 @@ export default async function UserPage({ params }) {
             }
             style={{ backgroundColor: link.infillColor, borderColor: link.outlineColor, color: link.textColor }}
             className="bg-white p-2 flex hover:bg-gray-100 rounded-md font-extrabold border-2 border-black"
-            href={link.url}
+            href={link.url.startsWith("http://") || link.url.startsWith("https://") ? link.url : "https://" + link.url}
           >
             <div className="w-18 mr-5">
               <div className="w-16 h-16 aspect-square flex items-center justify-center rounded-full">
@@ -189,13 +179,17 @@ export default async function UserPage({ params }) {
             <div className="flex items-center justify-center shrink grow-0 overflow-hidden">
               <div className="">
                 <h3 className="">{link.title}</h3>
-                <p className="text-sm text-gray-400 overflow-hidden">
+                <p style={{ color: link.textColor }} className="text-sm text-gray-400 overflow-hidden">
                   {link.subtitle}
                 </p>
               </div>
             </div>
           </Link>
         ))}
+      </div>
+      <div className="flex flex-col items-center justify-center mt-14 mb-2 underline">
+        <Link target="_blank" className="font-semibold" href="/signup">Sign Up to Taptrick Links</Link>
+        <Image src="/assets/logo.webp" alt="Taptrick Logo" width={48} height={48} />
       </div>
     </div>
   );

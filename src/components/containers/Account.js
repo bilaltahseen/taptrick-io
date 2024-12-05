@@ -9,6 +9,7 @@ import { faSave } from '@fortawesome/free-solid-svg-icons';
 import SubmitButton from '../buttons/SubmitButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import toast from 'react-hot-toast';
+import Link from 'next/link';
 
 const AccountContainer = ({ page, user }) => {
     const [links, setLinks] = useState(page.links || []);
@@ -16,16 +17,16 @@ const AccountContainer = ({ page, user }) => {
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
-          setIsIconLoading(false);
+            setIsIconLoading(false);
         }, 500); // Adjust the delay as needed
-    
+
         return () => clearTimeout(timeoutId);
-      }, []);
+    }, []);
 
     async function savePage(formData) {
 
         try {
-            const result = await saveAll(formData,links);
+            const result = await saveAll(formData, links);
 
             if (result) {
                 toast.success('Saved!');
@@ -42,7 +43,7 @@ const AccountContainer = ({ page, user }) => {
             <PageSettingsForm page={page} user={user} />
             <PageButtonsForm page={page} user={user} />
             <PageLinksForm page={page} user={user} links={links} setLinks={setLinks} />
-            <div className="max-w-[200px] mx-auto mt-8 max-w-xs mb-8">
+            <div className="max-w-[200px] mx-auto mt-8 max-w-xs mb-4">
                 <SubmitButton>
                     {isIconLoading ? (
                         <div className="animate-pulse bg-gray-400 w-4 h-4 rounded-full" />
@@ -51,6 +52,9 @@ const AccountContainer = ({ page, user }) => {
                     )}
                     <span>Save</span>
                 </SubmitButton>
+            </div>
+            <div className="flex flex-col items-center justify-center mb-2 underline">
+                <Link target="_blank" className="font-semibold" href={"/" + page.uri}>/{page.uri}</Link>
             </div>
         </form>
     )
