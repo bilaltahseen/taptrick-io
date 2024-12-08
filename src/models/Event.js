@@ -4,7 +4,8 @@ const EventSchema = new Schema({
   type: String, // click or view
   page: String, // for example "Jeff"
   uri: String, // /Jeff | https://
-  location: String, // for example "https://www.google.com"
+  location: String,
+  locationData: Object,
 }, {timestamps: true});
 
 export const Event = models?.Event || model('Event', EventSchema);

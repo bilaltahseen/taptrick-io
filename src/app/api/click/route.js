@@ -27,6 +27,7 @@ export async function POST(req) {
     type: 'click',
     uri: clickedLink,
     page,
+    locationData: locationData,
     location: country_codes[locationData.country] || locationData.region || locationData.city || 'Unknown',
   });
 
