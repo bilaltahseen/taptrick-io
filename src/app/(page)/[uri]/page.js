@@ -189,7 +189,6 @@ export default async function UserPage({ params }) {
       </div>
       <div className="flex flex-col items-center justify-center mt-14 mb-2 underline">
         <Link target="_blank" style={{ fontFamily: "Alilato" }} className="font-semibold" href="/signup">Sign Up to Taptrick Links</Link>
-        <Image src="/assets/logo.webp" alt="Taptrick Logo" width={48} height={48} />
       </div>
     </div>
   );
