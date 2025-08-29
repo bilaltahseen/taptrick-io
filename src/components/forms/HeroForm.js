@@ -2,10 +2,11 @@
 
 import {signIn} from "next-auth/react";
 import {redirect, useRouter} from "next/navigation";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
 export default function HeroForm({user}) {
   const router = useRouter();
+  const [error, setError] = useState('');
   useEffect(() => {
     if (
       'localStorage' in window
@@ -22,31 +23,45 @@ export default function HeroForm({user}) {
     const input = form.querySelector('input');
     const username = input.value;
     if (username.length > 0) {
+      if (error) setError('');
       if (user) {
         router.push('/account?desiredUsername='+username);
       } else {
         window.localStorage.setItem('desiredUsername', username);
         await signIn('google');
       }
+    } else {
+      if (user) {
+        router.push('/account');
+      } else {
+        setError('Username is required');
+        input.focus();
+      }
     }
   }
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="inline-flex items-center shadow-lg bg-white shadow-gray-500/20 rounded-md">
-          <span className="sm:block hidden bg-white py-4 pl-4 rounded-md">
-            links.taptrick.io/
-          </span>
-      <input
-        type="text"
-        className="ml-2 sm:ml-0"
-        style={{backgroundColor:'white',marginBottom:0,paddingLeft:0}}
-        placeholder="Username"/>
-      <button
-        type="submit"
-        className="bg-black hover:bg-gray-800 rounded-md text-slate-50 py-4 px-6 whitespace-nowrap">
-        Join for £2 / month
-      </button>
-    </form>
+    <>
+      <form
+        onSubmit={handleSubmit}
+        className="inline-flex items-center shadow-lg bg-white shadow-gray-500/20 rounded-md">
+            <span className="sm:block hidden bg-white py-4 pl-4 rounded-md">
+              links.taptrick.io/
+            </span>
+        <input
+          type="text"
+          className="ml-2 sm:ml-0"
+          style={{backgroundColor:'white',marginBottom:0,paddingLeft:0}}
+          placeholder="Username"
+          onChange={() => { if (error) setError(''); }} />
+        <button
+          type="submit"
+          className="bg-black hover:bg-gray-800 rounded-md text-slate-50 py-4 px-6 whitespace-nowrap">
+          Join for £2 / month
+        </button>
+      </form>
+      {error && (
+        <p className="text-red-500 text-sm mt-2">{error}</p>
+      )}
+    </>
   );
 }

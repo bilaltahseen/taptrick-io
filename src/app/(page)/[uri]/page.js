@@ -45,6 +45,11 @@ function buttonLink(key, value) {
   if (key === "email") {
     return "mailto:" + value;
   }
+
+  if (key === "whatsapp") {
+    return "https://wa.me/" + value.replace(/\s/g, "");
+  }
+
   return value;
 }
 

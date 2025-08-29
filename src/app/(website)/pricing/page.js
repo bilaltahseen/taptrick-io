@@ -30,9 +30,8 @@ function classNames(...classes) {
 
 
 export default async function Pricing() {
-
-
-
+  const session = await getServerSession(authOptions);
+  const href = session ? '/subscribe' : '/login';
   return (
     <div className="relative isolate px-6 py-24 sm:py-32 lg:px-8">
       <div className="mx-auto max-w-4xl text-center">
@@ -85,7 +84,7 @@ export default async function Pricing() {
               ))}
             </ul>
             <a
-              href={"/login"}
+              href={href}
               aria-describedby={"sign-up-for-basic-plan"}
               className={"mt-8 block rounded-md px-3.5 py-2.5 text-center text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:mt-10 text-black ring-1 ring-inset ring-black hover:ring-gray-700 focus-visible:outline-black"}
             >
